@@ -1,0 +1,5 @@
+#!/bin/bash
+exec docker run --rm \
+    -e UID="$(id -u)" -e GID="$(id -g)" -e SVN_USERNAME -e SVN_PASSWORD \
+    -v "$(pwd):/workspace" -v "$HOME/.subversion:/home/user/.subversion" \
+    profiprog/svn svn "$@"
